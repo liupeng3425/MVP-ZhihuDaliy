@@ -1,5 +1,7 @@
 package com.lypeer.zhihudaily.utils;
 
+import com.lypeer.zhihudaily.model.detail.DetailRepository;
+import com.lypeer.zhihudaily.model.detail.remote.DetailRemoteDS;
 import com.lypeer.zhihudaily.model.news.NewsRepository;
 import com.lypeer.zhihudaily.model.news.local.NewsLocalDS;
 import com.lypeer.zhihudaily.model.news.remote.NewsRemoteDS;
@@ -17,5 +19,9 @@ public class Injection {
                 NewsLocalDS.getInstance(),
                 NewsRemoteDS.getInstance()
         );
+    }
+
+    public static DetailRepository provideDetailRepository() {
+        return DetailRepository.getInstance(DetailRemoteDS.getInstance());
     }
 }

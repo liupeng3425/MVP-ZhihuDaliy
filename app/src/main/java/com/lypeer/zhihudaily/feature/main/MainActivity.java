@@ -1,10 +1,14 @@
 package com.lypeer.zhihudaily.feature.main;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.widget.LinearLayout;
 
+import com.lypeer.zhihudaily.api.OnItemClickListener;
+import com.lypeer.zhihudaily.feature.detail.DetailActivity;
+import com.lypeer.zhihudaily.model.news.bean.LatestNewsResponse;
 import com.lypeer.zhihudaily.utils.Injection;
 import com.lypeer.zhihudaily.R;
 import com.lypeer.zhihudaily.framework.BaseActivity;
@@ -20,7 +24,18 @@ public class MainActivity extends BaseActivity<MainPresenter> {
 
     @Override
     protected void initView(@Nullable Bundle savedInstanceState) {
-
+        mViewMain.getAdapter().setOnClickListener(new OnItemClickListener<LatestNewsResponse.StoriesBean>() {
+            @Override
+            public void onItemClick(LatestNewsResponse.StoriesBean itemValue, int viewID, int position) {
+                switch (viewID) {
+                    case R.id.item:
+                        Intent intent = new Intent(MainActivity.this, DetailActivity.class);
+                        intent.putExtra(DetailActivity.ID, String.valueOf(itemValue.getId()));
+                        startActivity(intent);
+                        break;
+                }
+            }
+        });;
     }
 
     @NonNull

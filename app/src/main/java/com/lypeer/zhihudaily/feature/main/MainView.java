@@ -1,6 +1,7 @@
 package com.lypeer.zhihudaily.feature.main;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -9,6 +10,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 
+import com.lypeer.zhihudaily.api.OnItemClickListener;
+import com.lypeer.zhihudaily.feature.detail.DetailActivity;
 import com.lypeer.zhihudaily.framework.BaseView;
 import com.lypeer.zhihudaily.utils.BaseUtil;
 import com.lypeer.zhihudaily.R;
@@ -30,6 +33,10 @@ public class MainView extends BaseView<MainContract.Presenter> implements MainCo
     SwipeRefreshLayout mSrlMain;
 
     private MainAdapter mAdapter;
+
+    public MainAdapter getAdapter() {
+        return mAdapter;
+    }
 
     public MainView(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
