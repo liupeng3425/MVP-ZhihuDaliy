@@ -29,7 +29,7 @@ public class DetailActivity extends BaseActivity<DetailPresenter> {
     @NonNull
     @Override
     protected DetailPresenter createPresenter() {
-        return new DetailPresenter(Injection.provideDetailRepository(), mViewDetail);
+        return new DetailPresenter(Injection.provideTasksRepository(), mViewDetail);
     }
 
     @Override

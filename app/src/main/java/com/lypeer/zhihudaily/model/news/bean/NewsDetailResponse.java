@@ -1,4 +1,4 @@
-package com.lypeer.zhihudaily.model.detail.bean;
+package com.lypeer.zhihudaily.model.news.bean;
 
 /**
  * Created by Peng on 2017/2/15.

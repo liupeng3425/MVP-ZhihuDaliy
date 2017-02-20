@@ -1,5 +1,6 @@
 package com.lypeer.zhihudaily.model.news.local;
 
+import com.lypeer.zhihudaily.model.news.bean.NewsDetailResponse;
 import com.lypeer.zhihudaily.utils.BaseUtil;
 import com.lypeer.zhihudaily.api.OnResultCallback;
 import com.lypeer.zhihudaily.R;
@@ -28,5 +29,10 @@ public class NewsLocalDS implements NewsDataSource {
     public void loadLatestNews(OnResultCallback<List<LatestNewsResponse.StoriesBean>> resultCallback) {
         //todo database
         resultCallback.onFail(BaseUtil.getString(R.string.error_data_null));
+    }
+
+    @Override
+    public void loadDetail(OnResultCallback<NewsDetailResponse> resultCallback, String id) {
+
     }
 }

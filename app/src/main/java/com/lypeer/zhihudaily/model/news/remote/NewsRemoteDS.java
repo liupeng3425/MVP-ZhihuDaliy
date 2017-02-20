@@ -7,6 +7,7 @@ import com.lypeer.zhihudaily.model.RetrofitClient;
 import com.lypeer.zhihudaily.api.OnResultCallback;
 import com.lypeer.zhihudaily.model.news.NewsDataSource;
 import com.lypeer.zhihudaily.model.news.bean.LatestNewsResponse;
+import com.lypeer.zhihudaily.model.news.bean.NewsDetailResponse;
 import com.lypeer.zhihudaily.utils.Constants;
 
 import java.util.List;
@@ -54,6 +55,29 @@ public class NewsRemoteDS implements NewsDataSource {
 
                     @Override
                     public void onFailure(Call<LatestNewsResponse> call, Throwable t) {
+                        resultCallback.onFail(null == t ? App.getAppContext().getString(R.string.error_network) : t.getMessage());
+                    }
+                });
+    }
+
+    @Override
+    public void loadDetail(final OnResultCallback<NewsDetailResponse> resultCallback, String id) {
+        RetrofitClient.buildService(ApiService.class)
+                .loadDetail(id)
+                .enqueue(new Callback<NewsDetailResponse>() {
+                    @Override
+                    public void onResponse(Call<NewsDetailResponse> call, Response<NewsDetailResponse> response) {
+                        if (response == null || response.body() == null) {
+                            resultCallback.onFail(App.getAppContext().getString(R.string.error_data_null));
+                            return;
+                        }
+
+                        NewsDetailResponse detail = response.body();
+                        resultCallback.onSuccess(detail, Constants.ResultCode.REMOTE);
+                    }
+
+                    @Override
+                    public void onFailure(Call<NewsDetailResponse> call, Throwable t) {
                         resultCallback.onFail(null == t ? App.getAppContext().getString(R.string.error_network) : t.getMessage());
                     }
                 });

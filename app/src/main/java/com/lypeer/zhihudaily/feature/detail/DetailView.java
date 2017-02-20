@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.lypeer.zhihudaily.R;
 import com.lypeer.zhihudaily.framework.BaseView;
-import com.lypeer.zhihudaily.model.detail.bean.NewsDetailResponse;
+import com.lypeer.zhihudaily.model.news.bean.NewsDetailResponse;
 import com.lypeer.zhihudaily.utils.BaseUtil;
 
 import butterknife.BindView;

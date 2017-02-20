@@ -1,6 +1,6 @@
 package com.lypeer.zhihudaily.api;
 
-import com.lypeer.zhihudaily.model.detail.bean.NewsDetailResponse;
+import com.lypeer.zhihudaily.model.news.bean.NewsDetailResponse;
 import com.lypeer.zhihudaily.model.news.bean.LatestNewsResponse;
 
 import retrofit2.Call;

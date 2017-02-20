@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import com.lypeer.zhihudaily.api.OnResultCallback;
 import com.lypeer.zhihudaily.framework.BaseRepository;
 import com.lypeer.zhihudaily.model.news.bean.LatestNewsResponse;
+import com.lypeer.zhihudaily.model.news.bean.NewsDetailResponse;
 
 import java.util.List;
 import java.util.concurrent.locks.Lock;
@@ -57,6 +58,11 @@ public class NewsRepository extends BaseRepository implements NewsDataSource {
         } else {
             loadLatestNewsFromRemoteDS(resultCallback);
         }
+    }
+
+    @Override
+    public void loadDetail(OnResultCallback<NewsDetailResponse> resultCallback, String id) {
+        mRemoteDS.loadDetail(resultCallback, id);
     }
 
     private void loadLatestNewsFromRemoteDS(final OnResultCallback<List<LatestNewsResponse.StoriesBean>> resultCallback) {

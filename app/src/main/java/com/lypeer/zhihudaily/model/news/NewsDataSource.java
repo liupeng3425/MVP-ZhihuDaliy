@@ -2,6 +2,7 @@ package com.lypeer.zhihudaily.model.news;
 
 import com.lypeer.zhihudaily.api.OnResultCallback;
 import com.lypeer.zhihudaily.model.news.bean.LatestNewsResponse;
+import com.lypeer.zhihudaily.model.news.bean.NewsDetailResponse;
 
 import java.util.List;
 
@@ -12,4 +13,6 @@ import java.util.List;
 public interface NewsDataSource {
 
     void loadLatestNews(OnResultCallback<List<LatestNewsResponse.StoriesBean>> resultCallback);
+
+    void loadDetail(OnResultCallback<NewsDetailResponse> resultCallback, String id);
 }
